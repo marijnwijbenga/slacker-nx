@@ -1,0 +1,11 @@
+<div class="monster-background">
+    <div
+        class="monster-background__image"
+        [ngStyle]="{'background-image': 'url(../assets/images/backgrounds/'
+         + monster.number
+        + '_'
+        + monster.name
+        + '_bg.png'}">
+        <ng-content></ng-content>
+    </div>
+</div>

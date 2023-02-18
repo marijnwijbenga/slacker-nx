@@ -1,0 +1,18 @@
+.monster-background {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%; /* Set the height to 100% of the width of the containing div */
+}
+
+.monster-background__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  image-rendering: pixelated;
+}

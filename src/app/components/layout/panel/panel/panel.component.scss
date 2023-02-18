@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+  flex: 1 0 25%;
+  height: 100%;
+  box-sizing: inherit;
+
+  &:nth-child(2) {
+    flex: 1 0 50%;
+    border-left-style: ridge;
+    border-left-width: 4px;
+    border-left-color: dimgray;
+    border-right-style: ridge;
+    border-right-width: 4px;
+    border-right-color: dimgray;
+  }
+
+}
