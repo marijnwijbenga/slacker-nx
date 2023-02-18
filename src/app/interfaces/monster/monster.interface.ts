@@ -3,5 +3,4 @@ export interface MonsterInterface {
 	name: string;
 	health: number;
 	color: string;
-
 }

@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MonsterService} from "../../../services/monster/monster.service";
 import {catchError, throwError} from "rxjs";
 import {MonsterInterface} from "../../../interfaces/monster/monster.interface";
+import {PlayerInterface} from "../../../interfaces/player/player.interface";
+import {WeaponInterface} from "../../../interfaces/weapon/weapon.interface";
 
 @Component({
 	selector: 'sl-monster',
@@ -9,6 +11,9 @@ import {MonsterInterface} from "../../../interfaces/monster/monster.interface";
 	styleUrls: ['./monster.component.scss'],
 })
 export class MonsterComponent implements OnInit {
+
+	@Input() player!: PlayerInterface;
+	@Input() weapon!: WeaponInterface;
 
 	constructor(private monsterService: MonsterService) {
 	}
@@ -18,7 +23,15 @@ export class MonsterComponent implements OnInit {
 	public loading?: boolean;
 
 	ngOnInit(): void {
-		this.monsterService.getMonster(1).pipe(
+		this.getMonster(1);
+	}
+
+	onDamageToMonster($event: number) {
+		console.log($event)
+	}
+
+	public getMonster(monsterNumber: number) {
+		this.monsterService.getMonster(monsterNumber).pipe(
 			catchError((error) => {
 				this.error = error;
 				return throwError(error);
@@ -33,4 +46,5 @@ export class MonsterComponent implements OnInit {
 			},
 		})
 	}
+
 }
