@@ -1,6 +1,5 @@
 <sl-bubble>damage</sl-bubble>
 <sl-bubble>gold drop</sl-bubble>
-<div style="height: 16rem;"></div>
 <sl-monster-background [monster]="monster">
     <sl-progress-bar>DPS</sl-progress-bar>
     <sl-monster-button
@@ -8,6 +7,11 @@
         [playerWeaponDamage]="weapon.strength"
         (damageToMonster)="onDamageToMonster($event)"
     ></sl-monster-button>
-    <sl-progress-bar>monster health</sl-progress-bar>
+    <sl-progress-bar class="monster__health-bar"
+        [totalValue]="monster.health"
+        [currentValue]="monster.health"
+        [color]="monster.color"
+        [showValues]="true"
+    ></sl-progress-bar>
     <sl-army></sl-army>
 </sl-monster-background>

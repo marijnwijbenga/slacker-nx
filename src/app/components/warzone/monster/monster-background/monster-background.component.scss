@@ -1,4 +1,7 @@
 .monster-background {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
   position: relative;
   width: 100%;
   height: 0;

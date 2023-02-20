@@ -16,6 +16,7 @@ import { ProgressBarComponent } from './components/common/progress-bar/progress-
 import { MonsterButtonComponent } from './components/warzone/monster/monster-button/monster-button.component';
 import { ArmyComponent } from './components/warzone/army/army.component';
 import { SpellsComponent } from './components/warzone/spells/spells.component';
+import { IconComponent } from './components/common/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SpellsComponent } from './components/warzone/spells/spells.component';
     MonsterButtonComponent,
     ArmyComponent,
     SpellsComponent,
+    IconComponent,
   ],
   imports: [
     BrowserModule,
