@@ -1,7 +1,9 @@
 @use "typography";
+@use "src/assets/styles/variables/colors";
 
 body {
-  background: radial-gradient(circle, transparent 20%, #2f2f30 20%, #2f2f30 80%, transparent 80%, transparent) 0% 0% / 88px 88px, radial-gradient(circle, transparent 20%, #2f2f30 20%, #2f2f30 80%, transparent 80%, transparent) 44px 44px / 88px 88px, linear-gradient(#1e1f22 3.5px, transparent 3.5px) 0px -1.75px / 44px 44px, linear-gradient(90deg, #1e1f22 3.5px, #2f2f30 3.5px) -1.75px 0px / 44px 44px #2f2f30;
-  background-size: 88px 88px, 88px 88px, 44px 44px, 44px 44px;
-  background-color: #2f2f30;
+  box-sizing: border-box;
+  background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 0% 0% / 38px 38px, radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 19px 19px / 38px 38px, linear-gradient(#2f2f30 2px, transparent 2px) 0px -1px / 19px 19px, linear-gradient(90deg, #2f2f30 2px, #000000 2px) -1px 0px / 19px 19px #000000;
+  background-size: 38px 38px, 38px 38px, 19px 19px, 19px 19px;
+  background-color: #000000;
 }

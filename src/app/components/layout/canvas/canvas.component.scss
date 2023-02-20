@@ -13,12 +13,8 @@
   padding: 0;
 
   @media (min-width: 1920px) {
-    border-left-style: ridge;
-    border-left-width: 4px;
-    border-left-color: dimgray;
-    border-right-style: ridge;
-    border-right-width: 4px;
-    border-right-color: dimgray;
+    border-left: 0.24rem solid colors.$gray-100;
+    border-right: 0.24rem solid colors.$gray-100;
   }
 
 }

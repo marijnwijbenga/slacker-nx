@@ -14,7 +14,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@styles/*": ["src/assets/styles/variables*"],
+      "@styles/*": ["src/assets/styles/variables*"]
     },
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
