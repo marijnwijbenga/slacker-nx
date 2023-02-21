@@ -11,7 +11,11 @@ export class BubbleService {
       private componentFactoryResolver: ComponentFactoryResolver,
   ) { }
 
-  public onShowBubble(event: MouseEvent, playerWeaponDamage: number, hasMinus: boolean, viewContainerRef: ViewContainerRef): void {
+  public onShowBubble(
+      event: MouseEvent,
+      number: number,
+      textContent: string,
+      viewContainerRef: ViewContainerRef): void {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(BubbleComponent);
     const componentRef = viewContainerRef.createComponent(componentFactory);
     const button = event.currentTarget as HTMLButtonElement;
@@ -20,8 +24,8 @@ export class BubbleService {
     const y = event.clientY - buttonRect.top + 120;
     componentRef.instance.setPosition(x, y);
     componentRef.instance.duration = 1000;
-    componentRef.instance.value = playerWeaponDamage;
-    componentRef.instance.hasMinus = hasMinus;
+    componentRef.instance.value = number;
+    componentRef.instance.textContent = textContent;
     timer(1500).pipe(tap(() => componentRef.destroy())).subscribe();
   }
 

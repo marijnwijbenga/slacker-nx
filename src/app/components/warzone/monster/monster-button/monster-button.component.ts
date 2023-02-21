@@ -41,6 +41,6 @@ export class MonsterButtonComponent {
   }
 
   public onShowBubble(event: MouseEvent, weaponDamage: number): void {
-    this.bubbleService.onShowBubble(event, weaponDamage, true, this.viewContainerRef);
+    this.bubbleService.onShowBubble(event, weaponDamage, '- ', this.viewContainerRef);
   }
 }

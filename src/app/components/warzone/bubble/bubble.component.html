@@ -1,7 +1,7 @@
 <div [ngStyle]="{top: position.y + 'px', left: position.x + 'px', opacity: opacity}" class="bubble">
     <span class="bubble__text">
-        <span *ngIf="hasMinus">
-            -
+        <span *ngIf="textContent">
+            {{ textContent }}
         </span>
         {{ value }}
     </span>

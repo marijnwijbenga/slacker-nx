@@ -8,9 +8,10 @@ import {Component, Input, OnInit} from '@angular/core';
 export class BubbleComponent implements OnInit {
   @Input() public value: number = 0;
   @Input() public duration: number = 1000;
+
   public position = { x: 0, y: 0 };
   public opacity = 1;
-  public hasMinus = false;
+  public textContent?: string;
 
   ngOnInit() {
     setTimeout(() => {
