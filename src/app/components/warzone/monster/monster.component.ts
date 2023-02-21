@@ -19,6 +19,7 @@ export class MonsterComponent implements OnInit {
 	}
 
 	public monster!: MonsterInterface;
+	public monsterTotalHealth!: number;
 	public error?: string;
 	public loading?: boolean;
 
@@ -27,7 +28,17 @@ export class MonsterComponent implements OnInit {
 	}
 
 	onDamageToMonster($event: number) {
-		console.log($event)
+		this.monsterService.damageMonster(this.monster.number, $event).pipe(
+			catchError((error) => {
+					this.error = error;
+					return throwError(error);
+				}
+			)).subscribe({
+				next: (monster: MonsterInterface) => {
+					this.monster = monster;
+				}
+			}
+		)
 	}
 
 	public getMonster(monsterNumber: number) {
@@ -39,6 +50,7 @@ export class MonsterComponent implements OnInit {
 		).subscribe({
 			next: (monster: MonsterInterface) => {
 				this.monster = monster;
+				this.monsterTotalHealth = monster.health;
 				this.loading = false
 			},
 			error: (error) => {

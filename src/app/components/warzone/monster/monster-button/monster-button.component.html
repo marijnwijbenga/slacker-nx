@@ -1,5 +1,5 @@
 <div class="monster-button">
-    <button (click)="onClick()" [class.monster-button--clicked]="buttonClicked">
+    <button (click)="onClick($event)" [class.monster-button--clicked]="buttonClicked">
         <img
             class="monster-button__image"
             [src]="'/assets/images/monsters/'
