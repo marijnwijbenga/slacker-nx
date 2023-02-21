@@ -1,5 +1,3 @@
-<sl-bubble>damage</sl-bubble>
-<sl-bubble>gold drop</sl-bubble>
 <sl-monster-background [monster]="monster">
     <sl-progress-bar>DPS</sl-progress-bar>
     <sl-monster-button
@@ -8,7 +6,7 @@
         (damageToMonster)="onDamageToMonster($event)"
     ></sl-monster-button>
     <sl-progress-bar class="monster__health-bar"
-        [totalValue]="monster.health"
+        [totalValue]="monsterTotalHealth"
         [currentValue]="monster.health"
         [color]="monster.color"
         [showValues]="true"
