@@ -1,5 +1,4 @@
 import {PlayerInterface} from "../interfaces/player/player.interface";
-import {WEAPONS} from "./_WEAPONS";
 
 export const PLAYER: PlayerInterface = {
 	name: "MiranG",
@@ -9,4 +8,5 @@ export const PLAYER: PlayerInterface = {
 	gold: 100,
 	health: 50,
 	weapon: 0,
+	unlockedShops: [1, 2],
 };

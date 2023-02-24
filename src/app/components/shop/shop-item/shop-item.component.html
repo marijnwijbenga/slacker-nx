@@ -1,0 +1,36 @@
+<div
+    class="shop-item"
+    [class.shop-item--disabled]="status === 'disabled'"
+    [class.shop-item--locked]="status === 'locked'"
+
+>
+    <div class="shop-item__icon">
+        <img
+            *ngIf="status !== 'locked'"
+            [src]="imagePath + shop.image + '.png'"
+            [alt]=" shop.name"
+            class="shop-item__icon-image"
+        >
+        <div *ngIf="status === 'locked'">
+            ???
+        </div>
+    </div>
+    <div
+        *ngIf="status !== 'locked'"
+        class="shop-item__center">
+        <div class="shop-item__title">{{ shop.name }}</div>
+        <div class="shop-item__price">
+            <div class="shop-item__price-icon">
+                <img src="/assets/images/icons/gold.png" alt="">
+            </div>
+            <div class="shop-item__price-amount">
+                {{ shop.price }}
+            </div>
+        </div>
+    </div>
+    <div
+        class="shop-item__amount"
+        *ngIf="status !== 'locked'"
+    >{{ shop.quantity }}
+    </div>
+</div>

@@ -5,5 +5,18 @@
         <sl-spells></sl-spells>
     </sl-panel>
     <sl-panel></sl-panel>
-    <sl-panel></sl-panel>
+    <sl-panel>
+        <sl-shop-list>
+            <sl-shop-item
+                *ngFor="let unlockedShop of unlockedShops"
+                [shop]="unlockedShop"
+                [status]="player.gold >= unlockedShop.price ? undefined : 'disabled'"
+            ></sl-shop-item>
+            <sl-shop-item
+                *ngFor="let lockedShop of lockedShops"
+                [shop]="lockedShop"
+                status="locked"
+            ></sl-shop-item>
+        </sl-shop-list>
+    </sl-panel>
 </sl-canvas>
