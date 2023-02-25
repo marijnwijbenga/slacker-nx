@@ -2,7 +2,7 @@
     class="shop-item"
     [class.shop-item--disabled]="status === 'disabled'"
     [class.shop-item--locked]="status === 'locked'"
-
+    [class.shop-item--hinted]="status === 'hinted'"
 >
     <div class="shop-item__icon">
         <img
@@ -10,27 +10,46 @@
             [src]="imagePath + shop.image + '.png'"
             [alt]=" shop.name"
             class="shop-item__icon-image"
+            [class.shop-item--hinted]="status === 'hinted'"
         >
-        <div *ngIf="status === 'locked'">
-            ???
-        </div>
+        <img
+            *ngIf="status === 'locked'"
+            [src]="imagePath + 'under-construction.png'"
+            alt=""
+            class="shop-item__icon-image--under-construction"
+        >
     </div>
     <div
-        *ngIf="status !== 'locked'"
         class="shop-item__center">
-        <div class="shop-item__title">{{ shop.name }}</div>
-        <div class="shop-item__price">
+        <div
+            *ngIf="status === 'unlocked' || status === 'disabled'"
+            class="shop-item__title"
+        >{{ shop.name }}</div>
+
+        <div
+            *ngIf="status === 'locked' || status === 'hinted'"
+            class="shop-item__title"
+        >???</div>
+
+        <div
+            *ngIf="status !== 'locked'"
+            class="shop-item__price"
+            [class.shop-item--hinted]="status === 'hinted'"
+        >
             <div class="shop-item__price-icon">
-                <img src="/assets/images/icons/gold.png" alt="">
+                <img src="../../assets/images/icons/gold.png" alt="">
             </div>
             <div class="shop-item__price-amount">
-                {{ shop.price }}
+                <span > {{ shop.price }}</span>
             </div>
         </div>
     </div>
     <div
         class="shop-item__amount"
-        *ngIf="status !== 'locked'"
-    >{{ shop.quantity }}
+    >
+        <span *ngIf="shop.quantity > 0">
+            {{ shop.quantity }}
+        </span>
+
     </div>
 </div>

@@ -5,8 +5,8 @@ export const PLAYER: PlayerInterface = {
 	level: 1,
 	xp: 15,
 	mana: 10,
-	gold: 100,
+	gold: 500,
 	health: 50,
 	weapon: 0,
-	unlockedShops: [1, 2],
+	unlockedShops: [1, 2, 3, ]
 };

@@ -7,7 +7,7 @@ export const SHOPS: ShopItemInterface[] = [
 		price: 100,
 		image: 'farm',
 		description: 'Your first line of defense',
-		quantity: 0,
+		quantity: 12,
 	},
 	{
 		id: 2,
@@ -15,12 +15,12 @@ export const SHOPS: ShopItemInterface[] = [
 		price: 500,
 		image: 'barracks',
 		description: 'Your second line of defense',
-		quantity: 0,
+		quantity: 11,
 	},
 	{
 		id: 3,
 		name: 'Siege Workshop',
-		price: 500,
+		price: 50000,
 		image: 'barracks',
 		description: 'Your second line of defense',
 		quantity: 0,
@@ -28,7 +28,7 @@ export const SHOPS: ShopItemInterface[] = [
 	{
 		id: 4,
 		name: 'Wizarding Academy',
-		price: 500,
+		price: 950660,
 		image: 'barracks',
 		description: 'Your second line of defense',
 		quantity: 0,
@@ -36,7 +36,7 @@ export const SHOPS: ShopItemInterface[] = [
 	{
 		id: 5,
 		name: 'University',
-		price: 500,
+		price: 1236549874,
 		image: 'barracks',
 		description: 'Your second line of defense',
 		quantity: 0,
