@@ -18,7 +18,6 @@ export class MonsterService {
 		)
 	}
 
-// write a function that takes a monster number and a damage number and reduces the monster health with the damage
 	public damageMonster(monsterNumber: number, damage: number): Observable<MonsterInterface> {
 		return of(this.monsters).pipe(
 			map((monsters) => monsters.filter((monster) => monster.number === monsterNumber)),

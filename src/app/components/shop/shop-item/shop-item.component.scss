@@ -1,0 +1,108 @@
+@use "src/assets/styles/variables/colors";
+@use "src/assets/styles/variables/typography";
+
+:host {
+  width: 100%;
+}
+
+.shop-item {
+  font-family: typography.$font-josefin-sans;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  width: 100%;
+  padding: 1.2rem 1rem;
+  background-image: url('/assets/images/shops/shop_bg.png');
+  background-size: 150% 150%;
+  image-rendering: pixelated;
+  cursor: pointer;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-filter: brightness(90%);
+  color: colors.$gray-900;
+
+
+  &:hover:not(.shop-item--disabled):not(.shop-item--locked):not(.shop-item--hinted) {
+    -webkit-filter: brightness(100%);
+    box-shadow: 0 0 16px rgba(228, 164, 27, 0.6) inset;
+  }
+
+  &:active:not(.shop-item--disabled):not(.shop-item--locked):not(.shop-item--hinted) {
+    box-shadow: 0 0 16px black inset, 0 0 32px rgba(228, 164, 27, 0.3);
+    -webkit-filter: brightness(120%);
+
+  }
+}
+
+.shop-item--disabled {
+  color: colors.$gray-600;
+  -webkit-filter: grayscale(90%) brightness(0.75);
+}
+.shop-item--hinted {
+  -webkit-filter: grayscale(80%) brightness(0.7);
+}
+.shop-item--locked {
+  -webkit-filter: grayscale(90%) brightness(0.4);
+}
+
+.shop-item__icon {
+  width: auto;
+  padding: 0 1rem;
+}
+
+
+.shop-item__icon-image {
+  image-rendering: pixelated;
+}
+
+.shop-item__icon-image--under-construction {
+  image-rendering: pixelated;
+}
+
+.shop-item__center {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  padding-left: 2rem;
+}
+
+.shop-item__title {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.shop-item__price {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-start;
+
+}
+
+.shop-item__price-icon {
+  align-self: center;
+}
+
+.shop-item__price-amount {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: colors.$gold;
+  padding-top: 0.03rem;
+  height: 100%;
+
+}
+
+.shop-item__amount {
+  font-family: typography.$font-press-start-2p;
+  color: colors.$gray-500;
+  width: 25%;
+  padding-right: 2rem;
+  font-size: 1.8rem;
+  text-align: right;
+  align-self: center;
+
+}

@@ -6,4 +6,5 @@ export interface PlayerInterface {
   gold: number;
   health: number;
   weapon: number;
+  unlockedShops: number[];
 }

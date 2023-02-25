@@ -33,14 +33,21 @@ export class MonsterButtonComponent {
     this.buttonClicked = true;
     this.onDamageToMonster(this.playerWeaponDamage);
     timer(90).pipe(tap(() => this.buttonClicked = false)).subscribe();
-    this.onShowBubble(event, this.playerWeaponDamage);
+    this.onShowDamageBubble(event, this.playerWeaponDamage);
   }
 
   public onDamageToMonster(value: number) {
     this.damageToMonster.emit(value);
   }
 
-  public onShowBubble(event: MouseEvent, weaponDamage: number): void {
-    this.bubbleService.onShowBubble(event, weaponDamage, '- ', this.viewContainerRef);
+  public onShowDamageBubble(event: MouseEvent, weaponDamage: number): void {
+    this.bubbleService.onShowBubble(
+        event,
+        weaponDamage,
+        '- ',
+        this.viewContainerRef,
+        0,
+        40
+    );
   }
 }

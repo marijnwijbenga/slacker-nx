@@ -17,6 +17,8 @@ import { MonsterButtonComponent } from './components/warzone/monster/monster-but
 import { ArmyComponent } from './components/warzone/army/army.component';
 import { SpellsComponent } from './components/warzone/spells/spells.component';
 import { IconComponent } from './components/common/icon/icon.component';
+import { ShopListComponent } from './components/shop/shop-list/shop-list.component';
+import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { IconComponent } from './components/common/icon/icon.component';
     ArmyComponent,
     SpellsComponent,
     IconComponent,
+    ShopListComponent,
+    ShopItemComponent,
   ],
   imports: [
     BrowserModule,

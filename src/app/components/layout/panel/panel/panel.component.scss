@@ -2,7 +2,7 @@
 
 :host {
   width: 100%;
-  flex: 1 0 25%;
+  flex: 1 0 23%;
   height: 100%;
   box-sizing: border-box;
 
@@ -10,6 +10,10 @@
     flex: 1 0 50%;
     border-left: 0.24rem solid colors.$gray-100;
     border-right: 0.24rem solid colors.$gray-100;
+  }
+
+  &:last-child {
+    flex: 1 0 27%;
   }
 
 }
