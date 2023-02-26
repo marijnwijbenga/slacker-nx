@@ -19,6 +19,11 @@ import { SpellsComponent } from './components/warzone/spells/spells.component';
 import { IconComponent } from './components/common/icon/icon.component';
 import { ShopListComponent } from './components/shop/shop-list/shop-list.component';
 import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
+import { FarmComponent } from './components/buildings/farm/farm.component';
+import { BuildingItemComponent } from './components/buildings/building-item/building-item.component';
+import { BuildingListComponent } from './components/buildings/building-list/building-list.component';
+import { UnitListComponent } from './components/buildings/units/unit-list/unit-list.component';
+import { UnitItemComponent } from './components/buildings/units/unit-item/unit-item.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { ShopItemComponent } from './components/shop/shop-item/shop-item.compone
     IconComponent,
     ShopListComponent,
     ShopItemComponent,
+    FarmComponent,
+    BuildingItemComponent,
+    BuildingListComponent,
+    UnitListComponent,
+    UnitItemComponent,
   ],
   imports: [
     BrowserModule,

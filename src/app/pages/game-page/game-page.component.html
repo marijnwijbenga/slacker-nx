@@ -4,13 +4,20 @@
         <sl-monster [player]="player" [weapon]="weapon"></sl-monster>
         <sl-spells></sl-spells>
     </sl-panel>
-    <sl-panel></sl-panel>
+    <sl-panel>
+        <sl-building-list>
+            <sl-building-item>
+                <sl-farm *ngIf="buildingUnlocked(BuildingsEnum.farm)"></sl-farm>
+            </sl-building-item>
+        </sl-building-list>
+    </sl-panel>
     <sl-panel>
         <sl-shop-list>
             <sl-shop-item
                 *ngFor="let unlockedShop of unlockedShops"
                 [shop]="unlockedShop"
                 [status]="player.gold >= unlockedShop.price ? 'unlocked' : 'disabled'"
+                (shopClicked)="this.handleShopClick($event)"
             ></sl-shop-item>
             <sl-shop-item
                 *ngFor="let hintedShop of hintedShops"

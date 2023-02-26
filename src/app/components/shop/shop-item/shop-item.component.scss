@@ -9,17 +9,16 @@
   font-family: typography.$font-josefin-sans;
   justify-content: center;
   display: flex;
-  flex: 1;
   flex-direction: row;
   width: 100%;
-  padding: 1.2rem 1rem;
+  padding: 2rem 1rem;
   background-image: url('/assets/images/shops/shop_bg.png');
   background-size: 150% 150%;
   image-rendering: pixelated;
   cursor: pointer;
   box-sizing: border-box;
   user-select: none;
-  -webkit-filter: brightness(90%);
+  -webkit-filter: brightness(80%);
   color: colors.$gray-900;
 
 
@@ -65,12 +64,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
   padding-left: 2rem;
 }
 
 .shop-item__title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 400;
   letter-spacing: 0.03em;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
@@ -78,8 +77,9 @@
 
 .shop-item__price {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.6rem;
   justify-content: flex-start;
+  align-items: center;
 
 }
 
@@ -88,11 +88,13 @@
 }
 
 .shop-item__price-amount {
+  align-self: center;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: colors.$gold;
-  padding-top: 0.03rem;
-  height: 100%;
+  line-height: 1.8rem;
+  vertical-align: middle;
+  padding-top: 0.4rem;
 
 }
 
@@ -101,7 +103,7 @@
   color: colors.$gray-500;
   width: 25%;
   padding-right: 2rem;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   text-align: right;
   align-self: center;
 

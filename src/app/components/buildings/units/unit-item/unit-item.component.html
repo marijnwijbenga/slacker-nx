@@ -1,0 +1,11 @@
+<div class="unit-item">
+    <img [src]="'assets/images/buildings/' + unit.building + '/units/' + unit.image + '.png'" class="unit-item__image">
+    <div class="unit-item__name">
+        <span class="unit-item__amount">{{unit.amount}}</span>
+        {{ unit.name}}<span *ngIf="unit.amount !== 1">s</span>
+    </div>
+    <div class="unit-item__cost">
+        <sl-icon icon="gold" size="small"></sl-icon>
+        <span class="unit-item__cost-amount">{{unit.cost}}</span>
+    </div>
+</div>

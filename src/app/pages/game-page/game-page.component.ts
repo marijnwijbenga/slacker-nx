@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../services/player/player.service";
-import {map} from "rxjs";
+import {map, Observable} from "rxjs";
 import {PlayerInterface} from "../../interfaces/player/player.interface";
 import {WeaponService} from "../../services/weapon/weapon.service";
 import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
-import {ShopService} from "../../services/shops/shop.interface";
+import {ShopService} from "../../services/shops/shop.service";
 import {ShopItemInterface} from "../../interfaces/shop/shop-item.interface";
+import {BuildingsEnum} from "../../enums/buildings.enum";
 
 @Component({
 	selector: 'sl-game-page',
@@ -19,6 +20,7 @@ export class GamePageComponent implements OnInit {
 	public unlockedShops!: ShopItemInterface[];
 	public lockedShops!: ShopItemInterface[];
 	public hintedShops!: ShopItemInterface[];
+	readonly BuildingsEnum = BuildingsEnum;
 
 	constructor(
 		private playerService: PlayerService,
@@ -83,7 +85,40 @@ export class GamePageComponent implements OnInit {
 	}
 
 
+	public buildingUnlocked(shopName: string): boolean | undefined {
+		console.log('unlocked shops from buildingUnlocked Fn', this.unlockedShops);
 
+		const shop = this.unlockedShops.find(shop => shop.name === shopName);
+		return shop && shop.quantity >= 1;
+
+	}
+
+	public handleShopClick($event: number) {
+
+		const shopId: number = $event;
+		const playerGold: number = this.player.gold;
+		this.shopService.getShop(shopId).pipe(
+			map((shop: ShopItemInterface) => shop.price)
+		).subscribe((shopCost: number) => {
+			if(playerGold >= shopCost) {
+
+
+
+				// reduce player gold by shopCost and return new value
+				this.player.gold -= shopCost;
+
+
+				// increase shop.quantity + 1
+				this.shopService.updateShopQuantity(shopId).subscribe();
+
+			} else {
+				console.log('too poor bastard')
+			}
+		});
+
+
+
+	}
 }
 
 

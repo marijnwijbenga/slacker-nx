@@ -1,4 +1,5 @@
 <div
+    (click)="onClick()"
     class="shop-item"
     [class.shop-item--disabled]="status === 'disabled'"
     [class.shop-item--locked]="status === 'locked'"
@@ -37,10 +38,10 @@
             [class.shop-item--hinted]="status === 'hinted'"
         >
             <div class="shop-item__price-icon">
-                <img src="../../assets/images/icons/gold.png" alt="">
+                <sl-icon icon="gold" size="medium"></sl-icon>
             </div>
             <div class="shop-item__price-amount">
-                <span > {{ shop.price }}</span>
+                {{ shop.price }}
             </div>
         </div>
     </div>

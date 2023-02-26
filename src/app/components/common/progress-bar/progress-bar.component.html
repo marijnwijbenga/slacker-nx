@@ -11,7 +11,12 @@
             [title]="label + ': ' + currentValue + ' / ' + totalValue"
         >
             <span class="bar__values" *ngIf="showValues">{{currentValue + ' / ' + totalValue}}</span>
+
         </div>
     </div>
+    <div
+    >
+        <ng-content></ng-content>
+    </div>
 </div>
-<ng-content></ng-content>
+
