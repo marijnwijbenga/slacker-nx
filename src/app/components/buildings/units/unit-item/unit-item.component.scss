@@ -8,19 +8,28 @@
   gap: 0.4rem;
 }
 
+.unit-item--disabled {
+  -webkit-filter: grayscale(1);
+}
+
 .unit-item__image {
   margin-bottom: 0.4rem;
   image-rendering: pixelated;
-  -webkit-filter: brightness(0.8);
+  -webkit-filter: brightness(0.95);
 
   &:hover {
     -webkit-filter: brightness(1);
     cursor: pointer;
   }
 
-  &:active {
+  &:active:not(.unit-item__image--disabled) {
     transform: translate(0.1rem, 0.1rem);
   }
+}
+
+.unit-item__image--disabled {
+  -webkit-filter: grayscale(1);
+  cursor: not-allowed;
 }
 
 .unit-item__amount {

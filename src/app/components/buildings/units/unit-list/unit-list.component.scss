@@ -1,5 +1,10 @@
+@use "src/assets/styles/variables/colors";
+@use 'src/assets/styles/variables/typography';
+
 .unit-list {
   display: flex;
+  border-bottom: 0.24rem solid colors.$gray-100;
+  padding: 2rem;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;

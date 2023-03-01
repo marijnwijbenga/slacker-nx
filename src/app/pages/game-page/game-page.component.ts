@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../services/player/player.service";
-import {map, Observable} from "rxjs";
+import {map, tap} from "rxjs";
 import {PlayerInterface} from "../../interfaces/player/player.interface";
 import {WeaponService} from "../../services/weapon/weapon.service";
 import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
 import {ShopService} from "../../services/shops/shop.service";
 import {ShopItemInterface} from "../../interfaces/shop/shop-item.interface";
 import {BuildingsEnum} from "../../enums/buildings.enum";
+import {UnitsService} from "../../services/units/units.service";
+import {UnitInterface} from "../../interfaces/units/unit.interface";
 
 @Component({
 	selector: 'sl-game-page',
@@ -35,6 +37,7 @@ export class GamePageComponent implements OnInit {
 		this.getUnlockedShops();
 		this.getLockedShops();
 		this.getHintedShops();
+
 	}
 
 	public getPlayer(): void {
@@ -86,33 +89,53 @@ export class GamePageComponent implements OnInit {
 
 
 	public buildingUnlocked(shopName: string): boolean | undefined {
+		// TODO why is this function being fired every time i click a shop?
 		console.log('unlocked shops from buildingUnlocked Fn', this.unlockedShops);
-
 		const shop = this.unlockedShops.find(shop => shop.name === shopName);
 		return shop && shop.quantity >= 1;
-
 	}
 
-	public handleShopClick($event: number) {
 
+
+	public handleShopClick($event: number): void {
 		const shopId: number = $event;
 		const playerGold: number = this.player.gold;
+
 		this.shopService.getShop(shopId).pipe(
-			map((shop: ShopItemInterface) => shop.price)
+			tap((shop) => console.log('shop from handleShopClick', shop.name)),
+			map((shop: ShopItemInterface) => shop.price),
 		).subscribe((shopCost: number) => {
+
 			if(playerGold >= shopCost) {
 
-
-
 				// reduce player gold by shopCost and return new value
+				// todo IS THIS SAFE?
 				this.player.gold -= shopCost;
 
-
 				// increase shop.quantity + 1
-				this.shopService.updateShopQuantity(shopId).subscribe();
+				this.shopService.updateShopQuantity(shopId).subscribe((shopQuantity: number) => {
 
-			} else {
-				console.log('too poor bastard')
+					const updatedUnlockedShops = this.unlockedShops.map((shop: ShopItemInterface) => {
+						if(shop.id === shopId) {
+							return { ...shop, quantity: shopQuantity };
+						}
+						return shop;
+					});
+					this.unlockedShops = updatedUnlockedShops;
+
+					if (shopQuantity === 10) {
+						// Unlock the next shop by adding it to the unlockedShops array
+						const newUnlockedShop = this.player.unlockedShops.slice(-1)[0] + 1;
+						this.player.unlockedShops.push(newUnlockedShop);
+
+						// Update the player with the new unlocked shop
+						this.playerService.updatePlayer(this.player).subscribe((player) => {
+							this.player = player;
+							this.getUnlockedShops();
+						});
+					}
+				});
+
 			}
 		});
 

@@ -7,7 +7,7 @@
     <sl-panel>
         <sl-building-list>
             <sl-building-item>
-                <sl-farm *ngIf="buildingUnlocked(BuildingsEnum.farm)"></sl-farm>
+                <sl-farm *ngIf="buildingUnlocked(BuildingsEnum.farm)" [player]="player"></sl-farm>
             </sl-building-item>
         </sl-building-list>
     </sl-panel>

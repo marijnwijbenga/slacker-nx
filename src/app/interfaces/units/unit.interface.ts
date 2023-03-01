@@ -1,7 +1,8 @@
 export interface UnitInterface {
-	  name: string;
-	  image: string;
-	  amount: number;
-	  cost: number;
-	  building: string;
+	id: number;
+	name: string;
+	image: string;
+	quantity: number;
+	cost: number;
+	building: string;
 }

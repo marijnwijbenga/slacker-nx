@@ -30,7 +30,8 @@
         <div
             *ngIf="status === 'locked' || status === 'hinted'"
             class="shop-item__title"
-        >???</div>
+        >???
+        </div>
 
         <div
             *ngIf="status !== 'locked'"
@@ -48,8 +49,10 @@
     <div
         class="shop-item__amount"
     >
-        <span *ngIf="shop.quantity > 0">
+        <span *ngIf="status !== 'locked' && status !== 'hinted'">
+            <span *ngIf="shop.quantity > 0">
             {{ shop.quantity }}
+            </span>
         </span>
 
     </div>
