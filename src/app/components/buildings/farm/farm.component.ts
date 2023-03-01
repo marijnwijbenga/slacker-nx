@@ -45,7 +45,6 @@ export class FarmComponent implements OnInit {
 
   public handleFarmUnitClick($event: { id: number, building: string, cost: number }): void {
     const unit: { id: number, building: string, cost: number } = $event;
-    console.log(unit);
     if(this.player.gold >= unit.cost) {
       this.player.gold -= unit.cost;
       this.unitsService.updateUnit(unit).subscribe();

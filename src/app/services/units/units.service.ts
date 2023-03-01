@@ -12,10 +12,10 @@ export class UnitsService {
 
   public units: UnitInterface[] = _UNITS;
 
-  public getUnit(id: number, building: string): Observable<UnitInterface> {
+  public getUnit(id: number): Observable<UnitInterface> {
     return of(this.units).pipe(
         map((units) => {
-          return units.filter((unit) => unit.id === id && unit.building === building)[0]
+          return units.filter((unit) => unit && unit.id === id)[0]
         }),
     );
   }
@@ -25,8 +25,6 @@ export class UnitsService {
   }
 
 
-  // map((shops: ShopItemInterface[]) => shops.filter((shop) => unlockedShops.includes(shop.id)))
-
   public getUnlockedUnits(unlockedUnits: number[]): Observable<UnitInterface[]> {
     return this.getUnits().pipe(
         map((units: UnitInterface[]) => units.filter((unit) => unlockedUnits.includes(unit.id))),
@@ -34,7 +32,7 @@ export class UnitsService {
   }
 
   public updateUnit(unit: { id: number, building: string }): Observable<number> {
-    return this.getUnit(unit.id, unit.building).pipe(
+    return this.getUnit(unit.id).pipe(
         tap((unit) => unit.quantity++),
         map((unit) => unit.quantity),
     )

@@ -1,7 +1,11 @@
 <sl-canvas>
     <sl-panel>
         <sl-player-stats [player]="player"></sl-player-stats>
-        <sl-monster [player]="player" [weapon]="weapon"></sl-monster>
+        <sl-monster [player]="player" [weapon]="weapon">
+            <sl-army slot="army">
+                <sl-army-unit *ngFor="let armyUnit of activeArmyUnits" [armyUnit]="armyUnit"></sl-army-unit>
+            </sl-army>
+        </sl-monster>
         <sl-spells></sl-spells>
     </sl-panel>
     <sl-panel>

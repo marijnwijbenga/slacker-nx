@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../services/player/player.service";
-import {map, tap} from "rxjs";
+import {filter, map, tap} from "rxjs";
 import {PlayerInterface} from "../../interfaces/player/player.interface";
 import {WeaponService} from "../../services/weapon/weapon.service";
 import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
 import {ShopService} from "../../services/shops/shop.service";
 import {ShopItemInterface} from "../../interfaces/shop/shop-item.interface";
 import {BuildingsEnum} from "../../enums/buildings.enum";
+import {BuildingsService} from "../../services/building/buildings.service";
+import {BuildingInterface} from "../../interfaces/building/building.interface";
 import {UnitsService} from "../../services/units/units.service";
 import {UnitInterface} from "../../interfaces/units/unit.interface";
 
@@ -22,12 +24,18 @@ export class GamePageComponent implements OnInit {
 	public unlockedShops!: ShopItemInterface[];
 	public lockedShops!: ShopItemInterface[];
 	public hintedShops!: ShopItemInterface[];
+
+	public activeArmyUnits: UnitInterface[] = [];
+
 	readonly BuildingsEnum = BuildingsEnum;
+
 
 	constructor(
 		private playerService: PlayerService,
 		private weaponService: WeaponService,
 		private shopService: ShopService,
+		private buildingService: BuildingsService,
+		private unitService: UnitsService,
 	) {
 	}
 
@@ -37,6 +45,7 @@ export class GamePageComponent implements OnInit {
 		this.getUnlockedShops();
 		this.getLockedShops();
 		this.getHintedShops();
+		this.getUnlockedUnits()
 
 	}
 
@@ -60,7 +69,6 @@ export class GamePageComponent implements OnInit {
 		this.shopService.getUnlockedShops(this.player.unlockedShops).subscribe({
 			next: (unlockedShops: ShopItemInterface[]) => {
 				this.unlockedShops = unlockedShops;
-				console.log(unlockedShops);
 			}
 		})
 	}
@@ -71,7 +79,6 @@ export class GamePageComponent implements OnInit {
 		).subscribe({
 			next: (lockedShops: ShopItemInterface[]) => {
 				this.lockedShops = lockedShops;
-				console.log(lockedShops);
 			}
 		})
 	}
@@ -82,7 +89,6 @@ export class GamePageComponent implements OnInit {
 		).subscribe({
 			next: (hintedShops: ShopItemInterface[]) => {
 				this.hintedShops = hintedShops;
-				console.log(hintedShops);
 			}
 		})
 	}
@@ -90,11 +96,30 @@ export class GamePageComponent implements OnInit {
 
 	public buildingUnlocked(shopName: string): boolean | undefined {
 		// TODO why is this function being fired every time i click a shop?
-		console.log('unlocked shops from buildingUnlocked Fn', this.unlockedShops);
 		const shop = this.unlockedShops.find(shop => shop.name === shopName);
 		return shop && shop.quantity >= 1;
 	}
 
+	public getUnlockedUnits(): void {
+		this.buildingService.getBuildings().subscribe({
+			next: (buildings: BuildingInterface[]) => {
+				buildings.forEach((building: BuildingInterface) => {
+					building.unlockedUnits.forEach((unitId: number) => {
+						// get the unit with unitID that has quantity 1
+						this.unitService.getUnit(unitId)
+							.pipe(
+								filter((unit: UnitInterface) => unit && unit?.quantity >= 1),
+							)
+							.subscribe({
+								next: (unit) => {
+									this.activeArmyUnits.push(unit);
+								}
+							})
+					})
+				})
+			}
+		})
+	}
 
 
 	public handleShopClick($event: number): void {
@@ -102,11 +127,10 @@ export class GamePageComponent implements OnInit {
 		const playerGold: number = this.player.gold;
 
 		this.shopService.getShop(shopId).pipe(
-			tap((shop) => console.log('shop from handleShopClick', shop.name)),
 			map((shop: ShopItemInterface) => shop.price),
 		).subscribe((shopCost: number) => {
 
-			if(playerGold >= shopCost) {
+			if (playerGold >= shopCost) {
 
 				// reduce player gold by shopCost and return new value
 				// todo IS THIS SAFE?
@@ -116,8 +140,8 @@ export class GamePageComponent implements OnInit {
 				this.shopService.updateShopQuantity(shopId).subscribe((shopQuantity: number) => {
 
 					const updatedUnlockedShops = this.unlockedShops.map((shop: ShopItemInterface) => {
-						if(shop.id === shopId) {
-							return { ...shop, quantity: shopQuantity };
+						if (shop.id === shopId) {
+							return {...shop, quantity: shopQuantity};
 						}
 						return shop;
 					});
@@ -138,7 +162,6 @@ export class GamePageComponent implements OnInit {
 
 			}
 		});
-
 
 
 	}

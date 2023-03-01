@@ -28,7 +28,6 @@ export class ShopService {
 	public getLockedShops(unlockedShops: number[]): Observable<ShopItemInterface[]> {
 		return this.getShops().pipe(
 			map((shops: ShopItemInterface[]) => shops.filter((shop) => !unlockedShops.includes(shop.id))),
-			tap((shops: ShopItemInterface[]) => console.log(shops, 'locked shops'))
 		);
 	}
 
