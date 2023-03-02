@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UnitInterface} from "../../../interfaces/units/unit.interface";
 import {UnitsService} from "../../../services/units/units.service";
 import {BuildingsService} from "../../../services/building/buildings.service";
@@ -12,6 +12,8 @@ import {PlayerInterface} from "../../../interfaces/player/player.interface";
   styleUrls: ['./farm.component.scss'],
 })
 export class FarmComponent implements OnInit {
+
+  @Output() public unitClicked: EventEmitter<number> = new EventEmitter<number>();
 
   @Input() public player!: PlayerInterface;
 
@@ -43,16 +45,18 @@ export class FarmComponent implements OnInit {
     })
   }
 
-  public handleFarmUnitClick($event: { id: number, building: string, cost: number }): void {
-    const unit: { id: number, building: string, cost: number } = $event;
+  public handleFarmUnitClick($event: { id: number, cost: number }): void {
+    const unit: { id: number, cost: number } = $event;
     if(this.player.gold >= unit.cost) {
       this.player.gold -= unit.cost;
       this.unitsService.updateUnit(unit).subscribe();
+
+      // show unit.armyIcon in gamepage
+      // update unit quantity
+      this.unitClicked.emit(unit.id);
+
     }
-
-
     // update the farm unit quantity by building, unit id and ..
   }
-
 
 }

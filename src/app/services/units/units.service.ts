@@ -31,7 +31,7 @@ export class UnitsService {
     )
   }
 
-  public updateUnit(unit: { id: number, building: string }): Observable<number> {
+  public updateUnit(unit: { id: number }): Observable<number> {
     return this.getUnit(unit.id).pipe(
         tap((unit) => unit.quantity++),
         map((unit) => unit.quantity),

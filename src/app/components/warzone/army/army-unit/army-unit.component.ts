@@ -9,6 +9,7 @@ import {UnitInterface} from "../../../../interfaces/units/unit.interface";
 export class ArmyUnitComponent {
 
 	@Input() public armyUnit!: UnitInterface;
-
 	public _ARMY_ICON_PATH = '/assets/images/buildings/farm/units/icons/';
+
+
 }

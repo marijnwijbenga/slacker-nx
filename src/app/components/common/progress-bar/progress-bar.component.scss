@@ -1,4 +1,8 @@
-.bar {
+@use "src/assets/styles/variables/colors";
+@use "src/assets/styles/variables/typography";
+
+
+.progress-bar {
   display: flex;
   padding : 0.2rem;
   margin: 0.8rem 0;
@@ -6,7 +10,19 @@
   gap: 0.8rem;
 }
 
-.bar__total-value {
+.progress-bar__content--small {
+  font-size: typography.$text-s;
+}
+
+.progress-bar__content--medium {
+  font-size: typography.$text-m;
+}
+
+.progress-bar__content--large {
+  font-size: typography.$text-l;
+}
+
+.progress-bar__total-value {
   width: 100%;
   height: 100%;
   min-height: 1rem;
@@ -18,7 +34,7 @@
 
 }
 
-.bar__current_value {
+.progress-bar__current_value {
   display: flex;
   justify-content: center;
   aligh-self: center;
@@ -27,8 +43,9 @@
   border-radius: inherit;
 }
 
-.bar__values {
+.progress-bar__values {
   width: 100%;
   left: 0;
   padding-top: .2rem;
 }
+

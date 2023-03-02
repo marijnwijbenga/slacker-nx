@@ -121,6 +121,20 @@ export class GamePageComponent implements OnInit {
 		})
 	}
 
+	public handleUnitClick($event: number) {
+		const unitId = $event;
+
+		this.unitService.getUnit(unitId)
+			.pipe(
+				filter((unit: UnitInterface) => unit.quantity === 1),
+			)
+			.subscribe({
+				next: (unit) => {
+					this.activeArmyUnits.push(unit);
+				}
+			})
+	}
+
 
 	public handleShopClick($event: number): void {
 		const shopId: number = $event;
@@ -165,6 +179,8 @@ export class GamePageComponent implements OnInit {
 
 
 	}
+
+
 }
 
 

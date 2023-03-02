@@ -9,10 +9,10 @@ import {UnitInterface} from "../../../../interfaces/units/unit.interface";
 export class UnitItemComponent {
   @Input() public unit!: UnitInterface;
   @Input() public state!: 'unlocked' | 'disabled';
-  @Output() public unitClicked: EventEmitter<{ id: number, building: string, cost: number }> = new EventEmitter<{ id: number, building: string, cost: number }>();
+  @Output() public unitClicked: EventEmitter<{ id: number, cost: number }> = new EventEmitter<{ id: number, cost: number }>();
 
   public onClick(): void {
-    const { id, building, cost } = this.unit;
-    this.unitClicked.emit({ id, building, cost });
+    const { id, cost } = this.unit;
+    this.unitClicked.emit({ id, cost });
   }
 }

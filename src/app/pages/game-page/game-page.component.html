@@ -3,7 +3,10 @@
         <sl-player-stats [player]="player"></sl-player-stats>
         <sl-monster [player]="player" [weapon]="weapon">
             <sl-army slot="army">
-                <sl-army-unit *ngFor="let armyUnit of activeArmyUnits" [armyUnit]="armyUnit"></sl-army-unit>
+                <sl-army-unit
+                    *ngFor="let armyUnit of activeArmyUnits"
+                    [armyUnit]="armyUnit"
+                ></sl-army-unit>
             </sl-army>
         </sl-monster>
         <sl-spells></sl-spells>
@@ -11,7 +14,11 @@
     <sl-panel>
         <sl-building-list>
             <sl-building-item>
-                <sl-farm *ngIf="buildingUnlocked(BuildingsEnum.farm)" [player]="player"></sl-farm>
+                <sl-farm
+                    *ngIf="buildingUnlocked(BuildingsEnum.farm)"
+                    [player]="player"
+                    (unitClicked)="handleUnitClick($event)"
+                ></sl-farm>
             </sl-building-item>
         </sl-building-list>
     </sl-panel>
