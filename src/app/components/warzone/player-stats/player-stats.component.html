@@ -1,5 +1,5 @@
 <div class="player-stats">
-    <sl-progress-bar>Level {{ player.level }}</sl-progress-bar>
+    <sl-progress-bar fontSize="large">Slacker Level {{ player.level }}</sl-progress-bar>
     <sl-progress-bar
         icon="heart"
         label="health"
@@ -7,7 +7,9 @@
         [currentValue]="player.health"
         [color]="ColorsEnum.bloodRed"
     ></sl-progress-bar>
-    <sl-progress-bar icon="xp" [totalValue]="" [currentValue]="player.xp"></sl-progress-bar>
-    <sl-progress-bar icon="mana"></sl-progress-bar>
-    <sl-progress-bar icon="gold" iconSize="medium"></sl-progress-bar>
+<!--    <sl-progress-bar icon="xp" [totalValue]="" [currentValue]="player.xp"></sl-progress-bar>-->
+<!--    <sl-progress-bar icon="mana"></sl-progress-bar>-->
+    <sl-progress-bar icon="gold" iconSize="medium">
+        <span class="player-stats__gold">{{ player.gold }}</span>
+    </sl-progress-bar>
 </div>

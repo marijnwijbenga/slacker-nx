@@ -1,0 +1,19 @@
+<div
+    class="unit-item"
+    [class.unit-item--disabled]="state === 'disabled'"
+>
+    <img
+        (click)="onClick()"
+        [src]="'assets/images/buildings/' + unit.building + '/units/' + unit.image + '.png'"
+        class="unit-item__image"
+        [class.unit-item__image--disabled]="state === 'disabled'"
+    >
+    <div class="unit-item__name">
+        <span class="unit-item__amount">{{unit.quantity}}</span>
+        {{ unit.name}}<span *ngIf="unit.quantity !== 1">s</span>
+    </div>
+    <div class="unit-item__cost">
+        <sl-icon icon="gold" size="small"></sl-icon>
+        <span class="unit-item__cost-amount">{{unit.cost}}</span>
+    </div>
+</div>

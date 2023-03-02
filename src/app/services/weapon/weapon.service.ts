@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
-import {WEAPONS} from "../../_CONST/_WEAPONS";
+import {_WEAPONS} from "../../_CONST/_WEAPONS";
 import {filter, map, Observable, of} from "rxjs";
 
 @Injectable({
@@ -8,7 +8,7 @@ import {filter, map, Observable, of} from "rxjs";
 })
 
 export class WeaponService {
-	private weapons: WeaponInterface[] = WEAPONS;
+	private weapons: WeaponInterface[] = _WEAPONS;
 
 	public getWeapon(weaponNumber: number): Observable<WeaponInterface> {
 		return of(this.weapons).pipe(

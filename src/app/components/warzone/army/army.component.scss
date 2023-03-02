@@ -1,0 +1,11 @@
+.army {
+  pointer-events: none;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width:50%;
+  height: 50%;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: transform 0.7s linear;
+}

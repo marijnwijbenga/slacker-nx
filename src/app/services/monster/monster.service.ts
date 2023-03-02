@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {MonsterInterface} from "../../interfaces/monster/monster.interface";
-import {MONSTER_LIST} from "../../_CONST/_MONSTERS";
+import {_MONSTER_LIST} from "../../_CONST/_MONSTERS";
 import {filter, map, Observable, of} from "rxjs";
 
 @Injectable({
@@ -8,7 +8,7 @@ import {filter, map, Observable, of} from "rxjs";
 })
 export class MonsterService {
 
-	private monsters: MonsterInterface[] = MONSTER_LIST;
+	private monsters: MonsterInterface[] = _MONSTER_LIST;
 
 	public getMonster(monsterNumber: number): Observable<MonsterInterface> {
 		return of(this.monsters).pipe(

@@ -1,6 +1,6 @@
 import { WeaponInterface } from "../interfaces/weapon/weapon.interface";
 
-export const WEAPONS: WeaponInterface[] = [
+export const _WEAPONS: WeaponInterface[] = [
   {
     name: "fist",
     dropsAtLevel: 0,
