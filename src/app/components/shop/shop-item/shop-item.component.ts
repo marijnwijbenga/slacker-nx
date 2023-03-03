@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ShopItemInterface} from "../../../interfaces/shop/shop-item.interface";
+import {ShopInterface} from "../../../interfaces/shop/shop.interface";
 
 @Component({
   selector: 'sl-shop-item',
@@ -8,7 +8,7 @@ import {ShopItemInterface} from "../../../interfaces/shop/shop-item.interface";
 })
 
 export class ShopItemComponent {
-  @Input() public shop!: ShopItemInterface;
+  @Input() public shop!: ShopInterface;
   @Input() public status?: 'locked' | 'disabled' | 'hinted' | 'unlocked';
   @Output() public shopClicked: EventEmitter<number> = new EventEmitter<number>();
   public imagePath = 'assets/images/shops/';

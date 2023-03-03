@@ -4,5 +4,4 @@ export interface MonsterInterface {
 	health: number;
 	color: string;
 	gold: number;
-	goldDropChance: number
 }

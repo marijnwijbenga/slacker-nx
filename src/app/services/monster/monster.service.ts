@@ -18,14 +18,19 @@ export class MonsterService {
 		)
 	}
 
-	public damageMonster(monsterNumber: number, damage: number): Observable<MonsterInterface> {
+	public damageMonster(monsterNumber: number, damage: number): Observable<number> {
 		return of(this.monsters).pipe(
 			map((monsters) => monsters.filter((monster) => monster.number === monsterNumber)),
 			filter((monsters) => monsters.length > 0),
 			map(monsters => monsters[0]),
 			map((monster) => {
-				monster.health -= damage;
-				return monster;
+				if(monster.health > 0) {
+					monster.health -= damage;
+					return damage;
+				} else {
+					monster.health = 0;
+					return monster.health;
+				}
 			})
 		)
 	}

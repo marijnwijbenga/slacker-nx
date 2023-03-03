@@ -9,6 +9,7 @@ export const _UNITS: UnitInterface[] = [
 		quantity: 0,
 		cost: 50,
 		building: 'farm',
+		baseDamage: 1,
 	},
 	{
 		id: 2,
@@ -18,6 +19,7 @@ export const _UNITS: UnitInterface[] = [
 		quantity: 0,
 		cost: 500,
 		building: 'farm',
+		baseDamage: 5,
 	},
 
 ]

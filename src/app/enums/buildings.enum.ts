@@ -1,4 +1,4 @@
 export enum BuildingsEnum {
-	farm = 'Farm',
-	barracks = 'Barracks',
+	farm = 'farm',
+	barracks = 'barracks',
 }

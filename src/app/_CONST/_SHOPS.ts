@@ -1,9 +1,10 @@
-import {ShopItemInterface} from "../interfaces/shop/shop-item.interface";
+import {ShopInterface} from "../interfaces/shop/shop.interface";
+import {BuildingsEnum} from "../enums/buildings.enum";
 
-export const _SHOPS: ShopItemInterface[] = [
+export const _SHOPS: ShopInterface[] = [
 	{
 		id: 1,
-		name: 'Farm',
+		name: BuildingsEnum.farm,
 		price: 100,
 		image: 'farm',
 		description: 'Your first line of defense',
@@ -11,7 +12,7 @@ export const _SHOPS: ShopItemInterface[] = [
 	},
 	{
 		id: 2,
-		name: 'Barracks',
+		name: BuildingsEnum.barracks,
 		price: 500,
 		image: 'barracks',
 		description: 'Your second line of defense',
