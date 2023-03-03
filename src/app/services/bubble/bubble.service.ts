@@ -15,7 +15,7 @@ export class BubbleService {
 	}
 
 	public onShowBubble(
-		event: MouseEvent,
+		target: MouseEvent | HTMLElement,
 		number: number,
 		textContent: string,
 		viewContainerRef: ViewContainerRef,
@@ -27,10 +27,22 @@ export class BubbleService {
 	): void {
 		const componentFactory = this.componentFactoryResolver.resolveComponentFactory(BubbleComponent);
 		const componentRef = viewContainerRef.createComponent(componentFactory);
-		const button = event.currentTarget as HTMLButtonElement;
-		const buttonRect = button.getBoundingClientRect();
-		const x = event.clientX - buttonRect.left + offsetX
-		const y = event.clientY - buttonRect.top + offsetY;
+
+		let x = offsetX;
+		let y = offsetY;
+
+		if(target instanceof MouseEvent) {
+			const button = target.currentTarget as HTMLButtonElement;
+			const buttonRect = button.getBoundingClientRect();
+			x += target.clientX - buttonRect.left;
+			y += target.clientY - buttonRect.top;
+		} else if (target instanceof HTMLElement) {
+			const elementRect = target.getBoundingClientRect();
+			x += elementRect.left;
+			y += elementRect.top;
+		}
+
+
 		componentRef.instance.setPosition(x, y);
 		componentRef.instance.duration = duration;
 		componentRef.instance.value = number;

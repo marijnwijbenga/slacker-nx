@@ -1,7 +1,6 @@
 @use "src/assets/styles/variables/colors";
 @use "src/assets/styles/variables/typography";
 
-
 .progress-bar {
   font-family: typography.$font-josefin-slab;
   display: flex;
@@ -47,9 +46,31 @@
   border-radius: inherit;
 }
 
+.progress-bar__current-value--small {
+  height: typography.$text-s;
+}
+.progress-bar__current-value--medium {
+  height: typography.$text-m;
+}
+.progress-bar__current-value--large {
+  height: typography.$text-l;
+}
+
 .progress-bar__values {
+  position: absolute;
+  top: 1.1rem;
   width: 100%;
   left: 0;
   padding-top: .2rem;
+}
+
+.progress-bar__values--small {
+  font-size: typography.$text-xs;
+}
+.progress-bar__values--medium {
+  font-size: typography.$text-s;
+}
+.progress-bar__values--large {
+  font-size: typography.$text-l;
 }
 

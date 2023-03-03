@@ -14,6 +14,7 @@ export class MonsterComponent implements OnInit {
 
 	@Input() player!: PlayerInterface;
 	@Input() weapon!: WeaponInterface;
+	@Input() activeMonster!: number;
 
 	constructor(private monsterService: MonsterService) {
 	}
@@ -24,7 +25,7 @@ export class MonsterComponent implements OnInit {
 	public loading?: boolean;
 
 	ngOnInit(): void {
-		this.getMonster(1);
+		this.getMonster(this.activeMonster);
 	}
 
 	public onDamageToMonster($event: number): void {
@@ -33,12 +34,7 @@ export class MonsterComponent implements OnInit {
 					this.error = error;
 					return throwError(error);
 				}
-			)).subscribe({
-				next: (monster: MonsterInterface) => {
-					this.monster = monster;
-				}
-			}
-		)
+			)).subscribe();
 	}
 
 	public onGoldDropped($event: number | null): void {

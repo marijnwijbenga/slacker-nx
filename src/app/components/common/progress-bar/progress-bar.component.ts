@@ -15,5 +15,5 @@ export class ProgressBarComponent {
   @Input() public showValues: boolean = false;
   @Input() public currentValue?: number;
   @Input() public iconSize: SizeType = 'small';
-  @Input() public fontSize: SizeType = 'medium';
+  @Input() public fontSize: SizeType = 'small';
 }

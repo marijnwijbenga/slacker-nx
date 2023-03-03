@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {UnitInterface} from "../../../../interfaces/units/unit.interface";
 
 @Component({
@@ -7,6 +7,8 @@ import {UnitInterface} from "../../../../interfaces/units/unit.interface";
   styleUrls: ['./army-unit.component.scss'],
 })
 export class ArmyUnitComponent {
+
+	@ViewChild('unitIcon') unitIcon!: ElementRef;
 
 	@Input() public armyUnit!: UnitInterface;
 	public _ARMY_ICON_PATH = '/assets/images/buildings/farm/units/icons/';

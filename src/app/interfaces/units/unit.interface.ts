@@ -6,4 +6,5 @@ export interface UnitInterface {
 	quantity: number;
 	cost: number;
 	building: string;
+	baseDamage: number;
 }
