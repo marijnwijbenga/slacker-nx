@@ -1,0 +1,1 @@
+export type BubbleType = 'regular' | 'crit-hit' | 'gold';

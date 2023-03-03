@@ -5,6 +5,6 @@ export const _BUILDINGS: BuildingInterface[] = [
 	{
 		id: 1,
 		name: BuildingsEnum.farm,
-		unlockedUnits: [],
+		unlockedUnits: [1],
 	},
 ]

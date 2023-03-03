@@ -3,4 +3,6 @@ export interface MonsterInterface {
 	name: string;
 	health: number;
 	color: string;
+	gold: number;
+	goldDropChance: number
 }

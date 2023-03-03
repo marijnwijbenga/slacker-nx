@@ -6,5 +6,7 @@ export const _MONSTER_LIST: MonsterInterface[] = [
 		name: "zombie",
 		color: "#5d823a",
 		health: 5000,
+		gold: 50.000,
+		goldDropChance: 0.1,
 	},
 ]

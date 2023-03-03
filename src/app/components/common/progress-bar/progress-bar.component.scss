@@ -3,6 +3,7 @@
 
 
 .progress-bar {
+  font-family: typography.$font-josefin-slab;
   display: flex;
   padding : 0.2rem;
   margin: 0.8rem 0;
@@ -12,14 +13,17 @@
 
 .progress-bar__content--small {
   font-size: typography.$text-s;
+  font-weight: 400;
 }
 
 .progress-bar__content--medium {
   font-size: typography.$text-m;
+  font-weight: 500;
 }
 
 .progress-bar__content--large {
   font-size: typography.$text-l;
+  font-weight: 500;
 }
 
 .progress-bar__total-value {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MonsterService} from "../../../services/monster/monster.service";
 import {catchError, throwError} from "rxjs";
 import {MonsterInterface} from "../../../interfaces/monster/monster.interface";
@@ -27,7 +27,7 @@ export class MonsterComponent implements OnInit {
 		this.getMonster(1);
 	}
 
-	onDamageToMonster($event: number) {
+	public onDamageToMonster($event: number): void {
 		this.monsterService.damageMonster(this.monster.number, $event).pipe(
 			catchError((error) => {
 					this.error = error;
@@ -41,7 +41,15 @@ export class MonsterComponent implements OnInit {
 		)
 	}
 
-	public getMonster(monsterNumber: number) {
+	public onGoldDropped($event: number | null): void {
+		//  TODO: Add gold to player through service?
+		if($event) {
+			this.player.gold += $event;
+		}
+
+	}
+
+	public getMonster(monsterNumber: number): void {
 		this.monsterService.getMonster(monsterNumber).pipe(
 			catchError((error) => {
 				this.error = error;

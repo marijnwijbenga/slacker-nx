@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerService} from "../../services/player/player.service";
-import {filter, map, tap} from "rxjs";
+import {filter, map} from "rxjs";
 import {PlayerInterface} from "../../interfaces/player/player.interface";
 import {WeaponService} from "../../services/weapon/weapon.service";
 import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
@@ -111,7 +111,7 @@ export class GamePageComponent implements OnInit {
 								filter((unit: UnitInterface) => unit && unit?.quantity >= 1),
 							)
 							.subscribe({
-								next: (unit) => {
+								next: (unit: UnitInterface) => {
 									this.activeArmyUnits.push(unit);
 								}
 							})
@@ -129,20 +129,21 @@ export class GamePageComponent implements OnInit {
 				filter((unit: UnitInterface) => unit.quantity === 1),
 			)
 			.subscribe({
-				next: (unit) => {
+				next: (unit: UnitInterface) => {
 					this.activeArmyUnits.push(unit);
 				}
 			})
 	}
 
-
 	public handleShopClick($event: number): void {
 		const shopId: number = $event;
 		const playerGold: number = this.player.gold;
 
+
 		this.shopService.getShop(shopId).pipe(
 			map((shop: ShopItemInterface) => shop.price),
 		).subscribe((shopCost: number) => {
+
 
 			if (playerGold >= shopCost) {
 

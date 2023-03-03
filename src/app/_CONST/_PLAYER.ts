@@ -8,5 +8,5 @@ export const _PLAYER: PlayerInterface = {
 	gold: 0,
 	health: 100,
 	weapon: 0,
-	unlockedShops: []
+	unlockedShops: [1]
 };

@@ -1,6 +1,8 @@
 import {ComponentFactoryResolver, Injectable, ViewContainerRef} from '@angular/core';
 import {BubbleComponent} from "../../components/warzone/bubble/bubble.component";
 import {tap, timer} from "rxjs";
+import {AnimationType} from "../../types/animation.type";
+import {BubbleType} from "../../types/bubble.type";
 
 @Injectable({
 	providedIn: 'root'
@@ -19,6 +21,9 @@ export class BubbleService {
 		viewContainerRef: ViewContainerRef,
 		offsetX: number,
 		offsetY: number,
+		type: BubbleType,
+		duration: number,
+		animationType: AnimationType,
 	): void {
 		const componentFactory = this.componentFactoryResolver.resolveComponentFactory(BubbleComponent);
 		const componentRef = viewContainerRef.createComponent(componentFactory);
@@ -27,10 +32,12 @@ export class BubbleService {
 		const x = event.clientX - buttonRect.left + offsetX
 		const y = event.clientY - buttonRect.top + offsetY;
 		componentRef.instance.setPosition(x, y);
-		componentRef.instance.duration = 1000;
+		componentRef.instance.duration = duration;
 		componentRef.instance.value = number;
 		componentRef.instance.textContent = textContent;
-		timer(1500).pipe(tap(() => componentRef.destroy())).subscribe();
+		componentRef.instance.type = type;
+		componentRef.instance.animationType = animationType;
+		timer(duration).pipe(tap(() => componentRef.destroy())).subscribe();
 	}
 
 }
