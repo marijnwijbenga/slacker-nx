@@ -1,0 +1,18 @@
+@use "src/assets/styles/variables/colors";
+@use 'src/assets/styles/variables/typography';
+
+.player-stats {
+  padding: 1rem 3.2rem;
+}
+
+.player-stats__gold {
+  display: inline-flex;
+  font-family: typography.$font-josefin-sans;
+  font-weight: 600;
+  font-size: 2rem;
+  color: colors.$gold;
+  line-height: 1.8rem;
+  vertical-align: middle;
+  padding-top: 0.1rem;
+  margin-bottom: 5.3rem; // remove when mana and xp are implemented
+}

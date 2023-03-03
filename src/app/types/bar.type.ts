@@ -1,0 +1,1 @@
+export type BarType = 'heart' | 'gold' | 'mana' | 'xp' | 'level';

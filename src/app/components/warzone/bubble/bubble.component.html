@@ -1,0 +1,27 @@
+<div
+    class="bubble"
+    [ngStyle]="{
+    top: position.y + 'px',
+    left: position.x + 'px',
+    opacity: opacity,
+    animationDuration: (duration / 1000) + 's',
+    animationTimingFunction: animationType
+    }"
+>
+    <span
+        class="bubble__text"
+        [class.bubble_text--gold]="type === 'gold'"
+        [class.bubble_text--crit-hit]="type === 'crit-hit'"
+    >
+        <span *ngIf="textContent">
+            {{ textContent }}
+        </span>
+        <span class="bubble__icon">
+            <sl-icon *ngIf="type === 'gold'" icon="gold" size="small"></sl-icon>
+        </span>
+
+        <span class="bubble__value">
+
+        </span>{{ value }}
+    </span>
+</div>

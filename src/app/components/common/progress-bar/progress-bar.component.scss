@@ -1,0 +1,76 @@
+@use "src/assets/styles/variables/colors";
+@use "src/assets/styles/variables/typography";
+
+.progress-bar {
+  font-family: typography.$font-josefin-slab;
+  display: flex;
+  padding : 0.2rem;
+  margin: 0.8rem 0;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+
+.progress-bar__content--small {
+  font-size: typography.$text-s;
+  font-weight: 400;
+}
+
+.progress-bar__content--medium {
+  font-size: typography.$text-m;
+  font-weight: 500;
+}
+
+.progress-bar__content--large {
+  font-size: typography.$text-l;
+  font-weight: 500;
+}
+
+.progress-bar__total-value {
+  width: 100%;
+  height: 100%;
+  min-height: 1rem;
+  background-color: #3e3b3b;
+  border-radius: 5px;
+  align-self: center;
+  text-align: center;
+  vertical-align: center;
+
+}
+
+.progress-bar__current_value {
+  display: flex;
+  justify-content: center;
+  aligh-self: center;
+  height: 100%;
+  min-height: 1rem;
+  border-radius: inherit;
+}
+
+.progress-bar__current-value--small {
+  height: typography.$text-s;
+}
+.progress-bar__current-value--medium {
+  height: typography.$text-m;
+}
+.progress-bar__current-value--large {
+  height: typography.$text-l;
+}
+
+.progress-bar__values {
+  position: absolute;
+  top: 1.1rem;
+  width: 100%;
+  left: 0;
+  padding-top: .2rem;
+}
+
+.progress-bar__values--small {
+  font-size: typography.$text-xs;
+}
+.progress-bar__values--medium {
+  font-size: typography.$text-s;
+}
+.progress-bar__values--large {
+  font-size: typography.$text-l;
+}
+

@@ -1,0 +1,21 @@
+.icon {
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    vertical-align: middle;
+
+    &__small {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    &__medium {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    &__large {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+}

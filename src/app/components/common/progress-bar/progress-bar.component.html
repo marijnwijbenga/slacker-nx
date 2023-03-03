@@ -1,0 +1,35 @@
+<div class="progress-bar">
+    <sl-icon *ngIf="icon" [icon]="icon" [size]="iconSize"></sl-icon>
+    <div
+        *ngIf="totalValue"
+        class="progress-bar__total-value"
+    >
+        <div
+            class="progress-bar__current_value"
+            *ngIf="currentValue"
+            [style.width.%]="currentValue / totalValue * 100"
+            [style.background-color]="color"
+            [title]="label + ': ' + currentValue + ' / ' + totalValue"
+            [class.progress-bar__current-value--small]="fontSize === 'small'"
+            [class.progress-bar__current-value--medium]="fontSize === 'medium'"
+            [class.progress-bar__current-value--large]="fontSize === 'large'"
+        >
+        </div>
+        <span
+            class="progress-bar__values"
+            [class.progress-bar__values--small]="fontSize === 'small'"
+            [class.progress-bar__values--medium]="fontSize === 'medium'"
+            [class.progress-bar__values--large]="fontSize === 'large'"
+            *ngIf="showValues"
+        >{{currentValue + ' / ' + totalValue}}</span>
+    </div>
+    <div
+        class="progress-bar__content"
+        [class.progress-bar__content--small]="fontSize === 'small'"
+        [class.progress-bar__content--medium]="fontSize === 'medium'"
+        [class.progress-bar__content--large]="fontSize === 'large'"
+    >
+        <ng-content></ng-content>
+    </div>
+</div>
+

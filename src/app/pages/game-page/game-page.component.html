@@ -1,9 +1,49 @@
 <sl-canvas>
     <sl-panel>
-        <sl-player-stats></sl-player-stats>
-        <sl-monster></sl-monster>
+        <sl-player-stats [player]="player"></sl-player-stats>
+        <sl-monster
+            [activeMonster]="activeMonster.number"
+            [player]="player"
+            [weapon]="weapon"
+        >
+            <sl-army slot="army">
+                <sl-army-unit
+                    *ngFor="let armyUnit of activeArmyUnits"
+                    [armyUnit]="armyUnit"
+                ></sl-army-unit>
+            </sl-army>
+        </sl-monster>
         <sl-spells></sl-spells>
     </sl-panel>
-    <sl-panel></sl-panel>
-    <sl-panel></sl-panel>
+    <sl-panel>
+        <sl-building-list>
+            <sl-building-item>
+                <sl-farm
+                    *ngIf="buildingUnlocked(BuildingsEnum.farm)"
+                    [player]="player"
+                    (unitClicked)="handleUnitClick($event)"
+                ></sl-farm>
+            </sl-building-item>
+        </sl-building-list>
+    </sl-panel>
+    <sl-panel>
+        <sl-shop-list>
+            <sl-shop-item
+                *ngFor="let unlockedShop of unlockedShops"
+                [shop]="unlockedShop"
+                [status]="player.gold >= unlockedShop.price ? 'unlocked' : 'disabled'"
+                (shopClicked)="this.handleShopClick($event)"
+            ></sl-shop-item>
+            <sl-shop-item
+                *ngFor="let hintedShop of hintedShops"
+                [shop]="hintedShop"
+                status="hinted"
+            ></sl-shop-item>
+            <sl-shop-item
+                *ngFor="let lockedShop of lockedShops"
+                [shop]="lockedShop"
+                status="locked"
+            ></sl-shop-item>
+        </sl-shop-list>
+    </sl-panel>
 </sl-canvas>

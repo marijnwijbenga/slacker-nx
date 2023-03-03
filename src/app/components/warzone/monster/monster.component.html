@@ -1,9 +1,17 @@
-<sl-bubble>damage</sl-bubble>
-<sl-bubble>gold drop</sl-bubble>
-<div style="height: 16rem;"></div>
 <sl-monster-background [monster]="monster">
-    <sl-progress-bar>DPS</sl-progress-bar>
-    <sl-monster-button></sl-monster-button>
-    <sl-progress-bar>monster health</sl-progress-bar>
-    <sl-army></sl-army>
+    <sl-monster-button
+        [monster]="monster"
+        [playerWeaponDamage]="weapon.strength"
+        (damageToMonster)="onDamageToMonster($event)"
+        (goldDropped)="onGoldDropped($event)"
+    ></sl-monster-button>
+    <sl-progress-bar
+        class="monster__health-bar"
+        [totalValue]="monsterTotalHealth"
+        [currentValue]="monster.health"
+        [color]="monster.color"
+        [showValues]="true"
+        fontSize="medium"
+    ></sl-progress-bar>
+    <ng-content select="[slot=army]"></ng-content>
 </sl-monster-background>

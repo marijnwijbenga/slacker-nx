@@ -1,0 +1,1 @@
+export type AnimationType = 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'linear';

@@ -1,0 +1,10 @@
+<div class="farm">
+    <sl-unit-list>
+        <sl-unit-item
+            [state]="this.player.gold >= unit.cost ? 'unlocked' : 'disabled'"
+            *ngFor="let unit of unlockedFarmUnits"
+            [unit]="unit"
+            (unitClicked)="this.handleFarmUnitClick($event)"
+        ></sl-unit-item>
+    </sl-unit-list>
+</div>

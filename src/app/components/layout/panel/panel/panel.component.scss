@@ -1,17 +1,19 @@
+@use "src/assets/styles/variables/colors";
+
 :host {
   width: 100%;
-  flex: 1 0 25%;
-  height: 100%;
-  box-sizing: inherit;
+  flex: 1 0 23%;
+  min-height: 100vh;
+  box-sizing: border-box;
 
   &:nth-child(2) {
     flex: 1 0 50%;
-    border-left-style: ridge;
-    border-left-width: 4px;
-    border-left-color: dimgray;
-    border-right-style: ridge;
-    border-right-width: 4px;
-    border-right-color: dimgray;
+    border-left: 0.24rem solid colors.$gray-100;
+    border-right: 0.24rem solid colors.$gray-100;
+  }
+
+  &:last-child {
+    flex: 1 0 27%;
   }
 
 }

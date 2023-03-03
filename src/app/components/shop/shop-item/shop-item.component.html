@@ -1,0 +1,59 @@
+<div
+    (click)="onClick()"
+    class="shop-item"
+    [class.shop-item--disabled]="status === 'disabled'"
+    [class.shop-item--locked]="status === 'locked'"
+    [class.shop-item--hinted]="status === 'hinted'"
+>
+    <div class="shop-item__icon">
+        <img
+            *ngIf="status !== 'locked'"
+            [src]="imagePath + shop.image + '.png'"
+            [alt]=" shop.name"
+            class="shop-item__icon-image"
+            [class.shop-item--hinted]="status === 'hinted'"
+        >
+        <img
+            *ngIf="status === 'locked'"
+            [src]="imagePath + 'under-construction.png'"
+            alt=""
+            class="shop-item__icon-image--under-construction"
+        >
+    </div>
+    <div
+        class="shop-item__center">
+        <div
+            *ngIf="status === 'unlocked' || status === 'disabled'"
+            class="shop-item__title"
+        >{{ shop.name }}</div>
+
+        <div
+            *ngIf="status === 'locked' || status === 'hinted'"
+            class="shop-item__title"
+        >???
+        </div>
+
+        <div
+            *ngIf="status !== 'locked'"
+            class="shop-item__price"
+            [class.shop-item--hinted]="status === 'hinted'"
+        >
+            <div class="shop-item__price-icon">
+                <sl-icon icon="gold" size="medium"></sl-icon>
+            </div>
+            <div class="shop-item__price-amount">
+                {{ shop.price }}
+            </div>
+        </div>
+    </div>
+    <div
+        class="shop-item__amount"
+    >
+        <span *ngIf="status !== 'locked' && status !== 'hinted'">
+            <span *ngIf="shop.quantity > 0">
+            {{ shop.quantity }}
+            </span>
+        </span>
+
+    </div>
+</div>
