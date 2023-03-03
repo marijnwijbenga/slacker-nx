@@ -7,7 +7,7 @@ export const _UNITS: UnitInterface[] = [
 		image: 'scarecrow',
 		armyIcon: 'crow',
 		quantity: 0,
-		cost: 10,
+		cost: 50,
 		building: 'farm',
 	},
 	{
@@ -16,7 +16,7 @@ export const _UNITS: UnitInterface[] = [
 		image: 'angry-farmer',
 		armyIcon: 'pitchfork',
 		quantity: 0,
-		cost: 100,
+		cost: 500,
 		building: 'farm',
 	},
 

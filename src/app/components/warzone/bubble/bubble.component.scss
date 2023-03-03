@@ -1,4 +1,8 @@
+@use "src/assets/styles/variables/colors";
+@use 'src/assets/styles/variables/typography';
+
 .bubble {
+  font-family: typography.$font-josefin-sans;
   position: absolute;
   align: center;
   margin: auto;
@@ -11,11 +15,26 @@
 }
 
 .bubble__text {
-  font-size: 1.8rem;
   display: flex;
+  font-size: 1.8rem;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.bubble_text--crit-hit {
+  color: colors.$blood-red;
+  font-size: typography.$text-l;
+}
+
+.bubble_text--gold {
+  color: colors.$gold;
+  font-size: typography.$text-l;
+  font-weight: 800;
+}
+
+.bubble__icon {
+  padding-bottom: 0.6rem;
 }
 
 @keyframes bubble {

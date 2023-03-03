@@ -7,7 +7,7 @@ export const _SHOPS: ShopItemInterface[] = [
 		price: 100,
 		image: 'farm',
 		description: 'Your first line of defense',
-		quantity: 1,
+		quantity: 0,
 	},
 	{
 		id: 2,

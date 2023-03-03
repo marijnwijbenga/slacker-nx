@@ -4,6 +4,7 @@
         [monster]="monster"
         [playerWeaponDamage]="weapon.strength"
         (damageToMonster)="onDamageToMonster($event)"
+        (goldDropped)="onGoldDropped($event)"
     ></sl-monster-button>
     <sl-progress-bar class="monster__health-bar"
         [totalValue]="monsterTotalHealth"
@@ -11,5 +12,5 @@
         [color]="monster.color"
         [showValues]="true"
     ></sl-progress-bar>
-    <ng-content slot="army"></ng-content>
+    <ng-content select="[slot=army]"></ng-content>
 </sl-monster-background>
