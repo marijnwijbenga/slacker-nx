@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {map, Observable, of} from "rxjs";
-import {PlayerInterface} from "../../interfaces/player/player.interface";
-import {_PLAYER} from "../../_CONST/_PLAYER";
+import {Injectable} from '@angular/core';
+import {Observable, of} from 'rxjs';
+import {PlayerInterface} from '../../interfaces/player/player.interface';
+import {_PLAYER} from '../../_CONST/_PLAYER';
 
 @Injectable({
 	providedIn: 'root',

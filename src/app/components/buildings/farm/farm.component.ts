@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {UnitInterface} from "../../../interfaces/units/unit.interface";
-import {UnitsService} from "../../../services/units/units.service";
-import {BuildingsService} from "../../../services/building/buildings.service";
-import {BuildingInterface} from "../../../interfaces/building/building.interface";
-import {BuildingsEnum} from "../../../enums/buildings.enum";
-import {PlayerInterface} from "../../../interfaces/player/player.interface";
+import {UnitInterface} from '../../../interfaces/units/unit.interface';
+import {UnitsService} from '../../../services/units/units.service';
+import {BuildingsService} from '../../../services/building/buildings.service';
+import {BuildingInterface} from '../../../interfaces/building/building.interface';
+import {BuildingsEnum} from '../../../enums/buildings.enum';
+import {PlayerInterface} from '../../../interfaces/player/player.interface';
 
 @Component({
   selector: 'sl-farm',

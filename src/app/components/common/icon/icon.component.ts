@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {SizeType} from "../../../types/size.type";
+import {SizeType} from '../../../types/size.type';
 
 const IMG_PATH = 'assets/images/icons/';
 

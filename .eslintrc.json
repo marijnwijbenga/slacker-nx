@@ -26,13 +26,35 @@
             "prefix": "sl",
             "style": "kebab-case"
           }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": ["error",
+          {
+            "overrides": {
+              "constructors": "no-public",
+              "properties": "off"
+            },
+            "accessibility": "explicit",
+            "visibilityModifier": "public",
+            "methodsWithinLifecycleHooks": "off",
+            "ignoredMethodNames": ["ngOnInit"]
+          }],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/quotes": ["error", "single", { "avoidEscape": true }],
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "warn",
+          {
+            "allowedNames": ["ngOnInit", "ngOnDestroy", "ngAfterViewInit", "ngOnChanges"]
+          }
         ]
       }
     },
     {
       "files": ["*.html"],
       "extends": ["plugin:@nrwl/nx/angular-template"],
-      "rules": {}
+      "rules": {
+        "quotes": ["error", "double", { "avoidEscape": true }]
+      }
     }
   ]
 }

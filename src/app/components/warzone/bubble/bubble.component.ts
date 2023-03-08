@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AnimationType} from "../../../types/animation.type";
-import {BubbleType} from "../../../types/bubble.type";
+import {AnimationType} from '../../../types/animation.type';
+import {BubbleType} from '../../../types/bubble.type';
 
 @Component({
   selector: 'sl-bubble',
@@ -11,19 +11,19 @@ export class BubbleComponent implements OnInit {
 
   public value = 0;
   public type: BubbleType = 'regular';
-  public duration: number = 1000;
+  public duration = 1000;
   public animationType: AnimationType = 'linear';
   public position = { x: 0, y: 0 };
   public opacity = 1;
   public textContent?: string;
 
-  ngOnInit() {
+  ngOnInit(): void {
     setTimeout(() => {
       this.opacity = 0;
     }, this.duration);
   }
 
-  public setPosition(x: number, y: number) {
+  public setPosition(x: number, y: number): void {
     this.position = { x, y };
   }
 

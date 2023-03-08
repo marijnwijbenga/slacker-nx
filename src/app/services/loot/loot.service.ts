@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {map, Observable} from "rxjs";
-import {MonsterService} from "../monster/monster.service";
-import {MonsterInterface} from "../../interfaces/monster/monster.interface";
-import {_MODIFIERS} from "../../_CONST/_MODIFIERS";
+import {map, Observable} from 'rxjs';
+import {MonsterService} from '../monster/monster.service';
+import {MonsterInterface} from '../../interfaces/monster/monster.interface';
+import {_MODIFIERS} from '../../_CONST/_MODIFIERS';
 
 @Injectable({
 	providedIn: 'root'

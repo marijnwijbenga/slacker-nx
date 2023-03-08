@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {BuildingInterface} from "../../interfaces/building/building.interface";
-import {map, Observable, of} from "rxjs";
-import {_BUILDINGS} from "../../_CONST/_BUILDINGS";
+import {Injectable} from '@angular/core';
+import {BuildingInterface} from '../../interfaces/building/building.interface';
+import {map, Observable, of} from 'rxjs';
+import {_BUILDINGS} from '../../_CONST/_BUILDINGS';
 
 @Injectable({providedIn: 'root'})
 

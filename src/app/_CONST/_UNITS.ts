@@ -1,4 +1,4 @@
-import {UnitInterface} from "../interfaces/units/unit.interface";
+import {UnitInterface} from '../interfaces/units/unit.interface';
 
 export const _UNITS: UnitInterface[] = [
 	{

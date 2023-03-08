@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 
 
 import {UnitInterface} from '../../interfaces/units/unit.interface';
-import {map, Observable, of, tap} from "rxjs";
-import {_UNITS} from "../../_CONST/_UNITS";
+import {map, Observable, of, tap} from 'rxjs';
+import {_UNITS} from '../../_CONST/_UNITS';
 
 @Injectable({
   providedIn: 'root'

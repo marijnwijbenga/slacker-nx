@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {UnitInterface} from "../../../../interfaces/units/unit.interface";
+import {UnitInterface} from '../../../../interfaces/units/unit.interface';
 
 @Component({
   selector: 'sl-unit-item[unit]',
