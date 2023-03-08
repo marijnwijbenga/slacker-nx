@@ -26,7 +26,12 @@
             "prefix": "sl",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "explicit" }],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "quotes": ["error", "double", { "avoidEscape": true }],
+        "@typescript-eslint/quotes": ["error", "single", { "avoidEscape": true }]
       }
     },
     {
