@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
-import {_WEAPONS} from "../../_CONST/_WEAPONS";
-import {filter, map, Observable, of} from "rxjs";
+import {Injectable} from '@angular/core';
+import {WeaponInterface} from '../../interfaces/weapon/weapon.interface';
+import {_WEAPONS} from '../../_CONST/_WEAPONS';
+import {filter, map, Observable, of} from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',

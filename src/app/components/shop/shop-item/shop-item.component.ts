@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ShopInterface} from "../../../interfaces/shop/shop.interface";
+import {ShopInterface} from '../../../interfaces/shop/shop.interface';
 
 @Component({
   selector: 'sl-shop-item',

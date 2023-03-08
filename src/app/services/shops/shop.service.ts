@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {_SHOPS} from "../../_CONST/_SHOPS";
-import {ShopInterface} from "../../interfaces/shop/shop.interface";
-import {map, Observable, of, tap} from "rxjs";
+import {Injectable} from '@angular/core';
+import {_SHOPS} from '../../_CONST/_SHOPS';
+import {ShopInterface} from '../../interfaces/shop/shop.interface';
+import {map, Observable, of, tap} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class ShopService {

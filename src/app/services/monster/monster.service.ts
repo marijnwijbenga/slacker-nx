@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {MonsterInterface} from "../../interfaces/monster/monster.interface";
-import {_MONSTER_LIST} from "../../_CONST/_MONSTERS";
-import {filter, map, Observable, of} from "rxjs";
+import {MonsterInterface} from '../../interfaces/monster/monster.interface';
+import {_MONSTER_LIST} from '../../_CONST/_MONSTERS';
+import {filter, map, Observable, of} from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'

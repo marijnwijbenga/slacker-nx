@@ -1,5 +1,5 @@
-import {ShopInterface} from "../interfaces/shop/shop.interface";
-import {BuildingsEnum} from "../enums/buildings.enum";
+import {ShopInterface} from '../interfaces/shop/shop.interface';
+import {BuildingsEnum} from '../enums/buildings.enum';
 
 export const _SHOPS: ShopInterface[] = [
 	{

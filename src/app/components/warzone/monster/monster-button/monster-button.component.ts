@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {MonsterInterface} from "../../../../interfaces/monster/monster.interface";
+import {MonsterInterface} from '../../../../interfaces/monster/monster.interface';
 
 @Component({
   selector: 'sl-monster-button',

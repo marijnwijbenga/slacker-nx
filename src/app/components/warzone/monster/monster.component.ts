@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MonsterService} from "../../../services/monster/monster.service";
-import {catchError, throwError} from "rxjs";
-import {MonsterInterface} from "../../../interfaces/monster/monster.interface";
-import {PlayerInterface} from "../../../interfaces/player/player.interface";
-import {WeaponInterface} from "../../../interfaces/weapon/weapon.interface";
+import {Component, Input, OnInit} from '@angular/core';
+import {MonsterService} from '../../../services/monster/monster.service';
+import {catchError, throwError} from 'rxjs';
+import {MonsterInterface} from '../../../interfaces/monster/monster.interface';
+import {PlayerInterface} from '../../../interfaces/player/player.interface';
+import {WeaponInterface} from '../../../interfaces/weapon/weapon.interface';
 
 @Component({
 	selector: 'sl-monster',

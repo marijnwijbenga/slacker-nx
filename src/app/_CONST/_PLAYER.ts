@@ -1,7 +1,7 @@
-import {PlayerInterface} from "../interfaces/player/player.interface";
+import {PlayerInterface} from '../interfaces/player/player.interface';
 
 export const _PLAYER: PlayerInterface = {
-	name: "MiranG",
+	name: 'MiranG',
 	level: 1,
 	xp: 15,
 	mana: 10,

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {PlayerInterface} from "../../../interfaces/player/player.interface";
-import {ColorsEnum} from "../../../enums/colors.enum";
+import {PlayerInterface} from '../../../interfaces/player/player.interface';
+import {ColorsEnum} from '../../../enums/colors.enum';
 
 const PLAYER_MAX_HEALTH = 100;
 

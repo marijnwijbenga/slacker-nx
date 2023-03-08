@@ -1,21 +1,21 @@
 import {Component, ElementRef, OnInit, QueryList, ViewChildren, ViewContainerRef} from '@angular/core';
-import {PlayerService} from "../../services/player/player.service";
-import {filter, interval, map, Observable, Subscription, tap} from "rxjs";
-import {PlayerInterface} from "../../interfaces/player/player.interface";
-import {WeaponService} from "../../services/weapon/weapon.service";
-import {WeaponInterface} from "../../interfaces/weapon/weapon.interface";
-import {ShopService} from "../../services/shops/shop.service";
-import {ShopInterface} from "../../interfaces/shop/shop.interface";
-import {BuildingsEnum} from "../../enums/buildings.enum";
-import {BuildingsService} from "../../services/building/buildings.service";
-import {BuildingInterface} from "../../interfaces/building/building.interface";
-import {UnitsService} from "../../services/units/units.service";
-import {UnitInterface} from "../../interfaces/units/unit.interface";
-import {MonsterService} from "../../services/monster/monster.service";
-import {MonsterInterface} from "../../interfaces/monster/monster.interface";
-import {_MONSTER_LIST} from "../../_CONST/_MONSTERS";
-import {BubbleService} from "../../services/bubble/bubble.service";
-import {ArmyUnitComponent} from "../../components/warzone/army/army-unit/army-unit.component";
+import {PlayerService} from '../../services/player/player.service';
+import {filter, interval, map, Observable} from 'rxjs';
+import {PlayerInterface} from '../../interfaces/player/player.interface';
+import {WeaponService} from '../../services/weapon/weapon.service';
+import {WeaponInterface} from '../../interfaces/weapon/weapon.interface';
+import {ShopService} from '../../services/shops/shop.service';
+import {ShopInterface} from '../../interfaces/shop/shop.interface';
+import {BuildingsEnum} from '../../enums/buildings.enum';
+import {BuildingsService} from '../../services/building/buildings.service';
+import {BuildingInterface} from '../../interfaces/building/building.interface';
+import {UnitsService} from '../../services/units/units.service';
+import {UnitInterface} from '../../interfaces/units/unit.interface';
+import {MonsterService} from '../../services/monster/monster.service';
+import {MonsterInterface} from '../../interfaces/monster/monster.interface';
+import {_MONSTER_LIST} from '../../_CONST/_MONSTERS';
+import {BubbleService} from '../../services/bubble/bubble.service';
+import {ArmyUnitComponent} from '../../components/warzone/army/army-unit/army-unit.component';
 
 @Component({
 	selector: 'sl-game-page',
@@ -36,8 +36,6 @@ export class GamePageComponent implements OnInit {
 	public activeMonster: MonsterInterface = _MONSTER_LIST[0];
 
 	readonly BuildingsEnum = BuildingsEnum;
-
-
 
 	constructor(
 		private viewContainerRef: ViewContainerRef,
@@ -227,7 +225,7 @@ export class GamePageComponent implements OnInit {
 	}
 
 
-	public handleUnitClick($event: number) {
+	public handleUnitClick($event: number): void {
 		this.unitService.getUnit($event)
 			.pipe(
 				filter((unit: UnitInterface) => unit.quantity === 1),

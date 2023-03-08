@@ -1,5 +1,5 @@
-import {BuildingInterface} from "../interfaces/building/building.interface";
-import {BuildingsEnum} from "../enums/buildings.enum";
+import {BuildingInterface} from '../interfaces/building/building.interface';
+import {BuildingsEnum} from '../enums/buildings.enum';
 
 export const _BUILDINGS: BuildingInterface[] = [
 	{

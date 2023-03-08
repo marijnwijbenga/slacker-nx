@@ -1,8 +1,8 @@
 import {ComponentFactoryResolver, Injectable, ViewContainerRef} from '@angular/core';
-import {BubbleComponent} from "../../components/warzone/bubble/bubble.component";
-import {tap, timer} from "rxjs";
-import {AnimationType} from "../../types/animation.type";
-import {BubbleType} from "../../types/bubble.type";
+import {BubbleComponent} from '../../components/warzone/bubble/bubble.component';
+import {tap, timer} from 'rxjs';
+import {AnimationType} from '../../types/animation.type';
+import {BubbleType} from '../../types/bubble.type';
 
 @Injectable({
 	providedIn: 'root'
