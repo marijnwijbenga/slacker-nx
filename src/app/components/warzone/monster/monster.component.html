@@ -1,7 +1,6 @@
 <sl-monster-background [monster]="monster">
     <sl-monster-button
         [monster]="monster"
-        [playerWeaponDamage]="weapon.strength"
         (damageToMonster)="onDamageToMonster($event)"
         (goldDropped)="onGoldDropped($event)"
     ></sl-monster-button>
